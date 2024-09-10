@@ -1,0 +1,9 @@
+Lab 01 Results
+==================================
+Task 01		03.00/03.00
+Task 02		01.20/02.00
+==================================
+Total		04.20/05.00 +2
+
+* IsSentence() is not performing the required
+task.
