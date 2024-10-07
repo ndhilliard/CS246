@@ -1,0 +1,13 @@
+Package 01 Results
+==================================
+ProblemSet 01	00.50/00.50$
+ProblemSet 02	00.50/00.50$
+ProblemSet 03	00.50/00.50
+ProblemSet 04	00.25/00.50$
+ProblemSet 05	00.50/00.50
+ProblemSet 06	00.00/00.50
+==================================
+Total		02.25/03.00
+
+$ Are mandatory. They need receives some points
+to count as a submission.
