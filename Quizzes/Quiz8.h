@@ -1,7 +1,7 @@
 template <class K, class V>
 void Remove(const K& key) {
 	Node temp = root;
-	while (temp != nullptr && temp->data.key != key) {
+	while (temp != nullptr && temp->data.key() != key) {
 		temp = temp->next;
 	}
 	if (temp == nullptr) {
