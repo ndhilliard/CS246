@@ -6,7 +6,7 @@ void Put(const K& key, const V& value) {
 	} else {
 		Node temp = root;
 		while (temp != nullptr && temp->data.key() != key) {
-			temp = t->next;
+			temp = temp->next;
 		}
 	}
 
