@@ -15,6 +15,6 @@ void Put(const K& key, const V& value) {
 		root->prev->next = root;
 		root = root->prev;
 	} else {
-		t->data.value() = value;
+		temp->data.value() = value;
 	}
 }
