@@ -84,8 +84,8 @@ namespace ds {
 		std::string Info() const override {
 			std::stringstream out;
 			out << "Valid flags for the Instert() method \n";
-			out << "'t' adds a ball to the top of the deck. \n";
-			out << "Balls can only inserted into empty tubes or if the ball matches the current top ball of that tube";
+			out << "'pc'-'players choice' adds a ball to the top of the deck if and only if the players ball choice matches the current ball in the selected tube or the selected tube is empty. \n";
+			out << "'gc'-'games choice' adds a ball to the top of the deck regardless of if the current state of the deck and balls contained. \n";
 			return out.str();
 		}
 	};
