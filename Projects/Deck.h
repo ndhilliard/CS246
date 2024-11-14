@@ -23,8 +23,6 @@ namespace ds {
 		Node<Token>* tail;
 		long size;
 		bool extendedDisplay;
-
-	public:
 		
 		// default constructor
 		Deck() : head(nullptr), tail(nullptr), size(0), extendedDisplay(false) {} // deck is initially empty
