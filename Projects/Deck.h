@@ -83,9 +83,9 @@ namespace ds {
 		// Override Info() method
 		std::string Info() const override {
 			std::stringstream out;
-			out << "Valid flags for Inster(), Remove(), and View(): \n";
-			out << "'top': refers to the top of the deck. \n";
-			out << "'bottom' refers to the bottom of the deck. \n";
+			out << "Valid flags for the Inster() method \n";
+			out << "'t' adds a ball to the top of the deck. \n";
+			out << "Balls can only inserted into empty tubes or if the ball matches the current top ball of that tube";
 			return out.str();
 		}
 	};
