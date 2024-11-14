@@ -83,7 +83,7 @@ namespace ds {
 		// Override Info() method
 		std::string Info() const override {
 			std::stringstream out;
-			out << "Valid flags for the Inster() method \n";
+			out << "Valid flags for the Instert() method \n";
 			out << "'t' adds a ball to the top of the deck. \n";
 			out << "Balls can only inserted into empty tubes or if the ball matches the current top ball of that tube";
 			return out.str();
