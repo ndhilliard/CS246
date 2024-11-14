@@ -41,7 +41,6 @@ namespace ds {
 		}
 
 		// assignment operator
-
 		Deck& operator=(const Deck& rhs) {
 			if (this != &rhs) {
 				Clear();
@@ -70,26 +69,23 @@ namespace ds {
 
 		// Task 7
 		// Override Size() method
-
 		long Size() const override {
 			return size;
 		}
 
 		// Task 8
 		// Override Empty() method 
-
 		bool Empty() const override {
 			return size == 0;
 		}
 
 		// Task 10
 		// Override Info() method
-
 		std::string Info() const override {
 			std::stringstream out;
 			out << "Valid flags for Inster(), Remove(), and View(): \n";
-			out << "- 'top': refers to the top of the deck. \n";
-			out << "- 'bottom' refers to the bottom of the deck. \n";
+			out << "'top': refers to the top of the deck. \n";
+			out << "'bottom' refers to the bottom of the deck. \n";
 			return out.str();
 		}
 	};
