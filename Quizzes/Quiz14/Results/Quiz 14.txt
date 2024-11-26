@@ -1,0 +1,11 @@
+Quiz 14
+
+T(n) = 2T(2n)+n^3
+
+a = 2
+b = 1
+k = 3
+
+a > b^k = case 1
+
+solution: θ(n(^log((base b)*2))
