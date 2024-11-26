@@ -3,7 +3,7 @@ Quiz 14
 T(n) = 2T(2n)+n^3
 
 a = 2
-b = 1
+b = (1/2)
 k = 3
 
 a > b^k = case 1
