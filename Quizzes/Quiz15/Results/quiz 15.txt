@@ -1,0 +1,11 @@
+quiz 15
+
+T(n) = T(n/4) + O(1)
+
+a = 1
+b = 4
+k = 0
+
+a = b^k = case 2
+
+solution: θ((n^0)lg(n))
