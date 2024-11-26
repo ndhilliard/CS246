@@ -1,0 +1,14 @@
+Quiz 13
+
+T(n)=3T(n/3)+n^2
+
+proof:
+
+a = 3
+b = 3
+k = 2
+
+a < b^k = case 3
+
+solution: θ(n^2)
+
