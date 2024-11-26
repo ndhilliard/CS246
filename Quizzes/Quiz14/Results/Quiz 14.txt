@@ -8,4 +8,4 @@ k = 3
 
 a > b^k = case 1
 
-solution: θ(n(^log((base b)*2))
+solution: θ(n^log((base b)*2))
