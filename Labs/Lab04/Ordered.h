@@ -32,11 +32,12 @@ void Sort(Array<T>& data) {
 	while (i > 0) {
 		int j = 0;
 		while (j < i) {
-			if (data[j] > data[j + 1]);
-			int temp = data[j];
+			if (data[j] > data[j + 1]){
+			T temp = data[j];
 			data[j] = data[j + 1];
 			data[j] = temp;
 			j++;
+			}
 		}
 		i--;
 	}
@@ -49,15 +50,15 @@ void InsertionSort(Array<T>& data) {
 
 	while (i < data.size()) {
 		int j = i;
-		while (j < 0 && data[j - 1] > data[j]) {
-			int temp = data[j - 1];
+		while (j > 0 && data[j - 1] > data[j]) {
+			T temp = data[j - 1];
 			data[j - 1] = data[j];
 			data[j] = temp;
 			j--;
 		}
 		i++;
 	}
-};
+}
 
 // extra credit 2
 template <typename T>
@@ -74,7 +75,7 @@ void SelectionSort(Array<T>& data) {
 			j++;
 		}
 		if (m != i) {
-			int temp = data[min];
+			T temp = data[min];
 			data[min] = data[j];
 			data[i] = temp;
 		}

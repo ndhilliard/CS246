@@ -1,0 +1,10 @@
+Lab 04 Results
+==================================
+Task 01		02.00/02.00
+Task 02		02.97/03.00
+==================================
+Total		04.97/05.00 +3.0
+
+* In Sort() the increment of j needs 
+to be out of the if statement otherwise
+you will have an infinite loop
