@@ -42,7 +42,7 @@ namespace ds {
 		*/
 		bool IsUniform() const {
 			if (Empty()) {
-				return true; // An empty deck can be considered uniform
+				return true; // Empty deck should be uniform so true
 			}
 
 			Node<Token>* current = head;
