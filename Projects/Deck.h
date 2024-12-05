@@ -14,6 +14,8 @@
 #include "Tools.h"
 
 // task 1
+
+class Game;
 namespace ds {
 	class Deck : public Collection {
 	private:
@@ -57,14 +59,14 @@ namespace ds {
 
 			return true; // All tokens have the same key
 		}
-	
+
 	public:
 		// task 2
 		// default contructor initilizing deck to empty with null heads and tails
-		Deck() : head(nullptr), tail(nullptr), size(0), extendedDisplay(false) {} 
+		Deck() : head(nullptr), tail(nullptr), size(0), extendedDisplay(false) {}
 
 		// copy constructor that initializes deck by copying the node from another deck
-		Deck(const Deck& rhs) : head(nullptr), tail(nullptr), size(0), extendedDisplay(rhs.extendedDisplay) { 
+		Deck(const Deck& rhs) : head(nullptr), tail(nullptr), size(0), extendedDisplay(rhs.extendedDisplay) {
 			head = Copy(rhs.head);
 
 			// updata tail and size
@@ -105,6 +107,10 @@ namespace ds {
 		*/
 		void Insert(const Token& token, std::string flag) override {
 			if (flag == "pc") {
+				if (size >= 4) {
+					cout << "Insert failed deck is full";
+					return;
+				}
 				if (Empty()) { // Deck is empty, insert ball
 					Node<Token>* newNode = new Node<Token>(token);
 					head = tail = newNode;
@@ -115,7 +121,8 @@ namespace ds {
 						head->prev = newNode;
 						head = newNode;
 					} else {
-						throw std::invalid_argument("Insert Failed: Ball types do not match!");
+						cout << "Insert Failed: Ball types do not match!";
+						return;
 					}
 				}
 				size++;
@@ -130,7 +137,8 @@ namespace ds {
 				head = newNode;
 				size++;
 			} else {
-				throw std::invalid_argument("Invalid flag for Insert(): value must be 'pc' or 'gc'");
+				cout << "Invalid flag for Insert(): value must be 'pc' or 'gc'";
+				return;
 			}
 		}
 
@@ -141,7 +149,8 @@ namespace ds {
 		*/
 		void Remove(std::string flag) override {
 			if (Empty()) { // if deck is empty throw error
-				throw std::invalid_argument("Remove failed: Cannot remove from empty tube");
+				cout << "Remove failed: Cannot remove from empty tube";
+				return;
 			} else {
 				// remove top ball and change head pointer
 				Node<Token>* temp = head;
@@ -155,16 +164,17 @@ namespace ds {
 				delete temp;
 				size--;
 			}
-		} 
+		}
 
 		//Task 5
 		/*
-		Return calls the GetNodeAtPosition function that takes the flag input 
+		Return calls the GetNodeAtPosition function that takes the flag input
 		and returns the token at that specific index
 		*/
 		Token& View(std::string flag) override {
 			if (Empty()) { // empty deck throw error
-				throw std::invalid_argument("Deck is empty. Nothing to see here");
+				cout << "Deck is empty. Nothing to see here";
+				return;
 			}
 			int position = std::stoi(flag); // Convert flag to integer for index
 			return GetNodeAtPosition(position)->data;
@@ -172,7 +182,8 @@ namespace ds {
 
 		const Token& View(std::string flag) const override {
 			if (Empty()) { // if empty, throw an error
-				throw std::invalid_argument("Deck is empty. Nothing to see here");
+				cout << "Deck is empty. Nothing to see here";
+				return;
 			}
 
 			// Convert the flag to an integer for index
@@ -181,11 +192,11 @@ namespace ds {
 			return GetNodeAtPosition(position)->data;
 		}
 
-	
+
 		// Task 6
 		// Extend method sets whether the items are able to be seen. This is always true.
 		void Extend(bool flag) override {
-			extendedDisplay = true; 
+			extendedDisplay = true;
 		}
 
 		// Task 7
@@ -220,8 +231,8 @@ namespace ds {
 
 		// Task 10
 		/*
-		info() prints out the rules of the games and how to use 
-		specific flags for methods and how they operate 
+		info() prints out the rules of the games and how to use
+		specific flags for methods and how they operate
 		*/
 		std::string Info() const override {
 			std::stringstream out;
@@ -232,23 +243,39 @@ namespace ds {
 			out << "there are no flags for the remove or extend methods \n";
 			return out.str();
 		}
-
+		// CHANGE TOSTRING TO BE VERTICAL!!!!!!!&&&&&
 		// Task 11
-		// ToString() prints out how the deck currently looks 
 		std::string ToString() const override {
-			std::stringstream out;
-			int totalSlots = 5; // Adjust as needed
-			Node<Token>* current = head;
-			for (int i = 0; i < totalSlots; i++) {
-				if (current != nullptr) {
-					out << "[" << current->data.ToString() << "]";
-					current = current->next;
-				} else {
-					out << "[]";
-				}
+			std::stringstream ss;
+
+			// We know the deck's max capacity is 4
+			const int maxCapacity = 4;
+			std::string tokens[4];
+
+			// Initialize all slots as empty
+			for (int i = 0; i < maxCapacity; i++) {
+				tokens[i] = "[]";
 			}
-			return out.str();
+
+			// Traverse up to 4 tokens in the deck
+			Node<Token>* current = head;
+			int index = 0;
+			while (current != nullptr && index < maxCapacity) {
+				// Convert the token to a string and enclose it in brackets
+				std::string tokenStr = "[" + current->data.ToString() + "]";
+				tokens[index] = tokenStr;
+
+				current = current->next;
+				index++;
+			}
+
+			// Print the tokens vertically, top token first
+			for (int i = 0; i < maxCapacity; i++) {
+				ss << tokens[i] << "\n";
+			}
+
+			return ss.str();
 		}
 	};
-}
-#endif DECK_H
+} 
+#endif // DECK_H
