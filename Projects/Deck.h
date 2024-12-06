@@ -29,7 +29,7 @@ namespace ds {
 		// This method helps retrieve specific Tokens for the View() method
 		Node<Token>* GetNodeAtPosition(int position) const {
 			if (position < 0 || position >= size) {
-				throw std::invalid_argument("Invalid position for View()");
+				std::cout<< "Invalid position for View()";
 			}
 			Node<Token>* current = head;
 			for (int i = 0; i < position; i++) {
@@ -108,7 +108,7 @@ namespace ds {
 		void Insert(const Token& token, std::string flag) override {
 			if (flag == "pc") {
 				if (size >= 4) {
-					cout << "Insert failed deck is full";
+					std::cout << "Insert failed deck is full";
 					return;
 				}
 				if (Empty()) { // Deck is empty, insert ball
@@ -121,7 +121,7 @@ namespace ds {
 						head->prev = newNode;
 						head = newNode;
 					} else {
-						cout << "Insert Failed: Ball types do not match!";
+						std::cout << "Insert Failed: Ball types do not match!";
 						return;
 					}
 				}
@@ -137,7 +137,7 @@ namespace ds {
 				head = newNode;
 				size++;
 			} else {
-				cout << "Invalid flag for Insert(): value must be 'pc' or 'gc'";
+				std::cout << "Invalid flag for Insert(): value must be 'pc' or 'gc'";
 				return;
 			}
 		}
@@ -149,7 +149,7 @@ namespace ds {
 		*/
 		void Remove(std::string flag) override {
 			if (Empty()) { // if deck is empty throw error
-				cout << "Remove failed: Cannot remove from empty tube";
+				std::cout << "Remove failed: Cannot remove from empty tube";
 				return;
 			} else {
 				// remove top ball and change head pointer
@@ -173,8 +173,7 @@ namespace ds {
 		*/
 		Token& View(std::string flag) override {
 			if (Empty()) { // empty deck throw error
-				cout << "Deck is empty. Nothing to see here";
-				return;
+				throw std::invalid_argument("Deck is empty. Nothing to see here");
 			}
 			int position = std::stoi(flag); // Convert flag to integer for index
 			return GetNodeAtPosition(position)->data;
@@ -182,8 +181,7 @@ namespace ds {
 
 		const Token& View(std::string flag) const override {
 			if (Empty()) { // if empty, throw an error
-				cout << "Deck is empty. Nothing to see here";
-				return;
+				throw std::invalid_argument("Deck is empty. Nothing to see here");
 			}
 
 			// Convert the flag to an integer for index
