@@ -1,0 +1,24 @@
+1: T(n) = 2T(n/3) + n 
+  a = 2
+  b = 3
+  k = 1
+  2 < 3^1
+  case 3: theta(n)
+2: T(n) = 3T(n/2) + 5
+  a = 3
+  b = 2
+  k = 1
+  3 > 2^1
+  case 1: theta((n^2)lg(n))
+3: T(n) = 2T(3n) + 2n^2
+  a = 2
+  b = 3
+  k = 2
+  2 < 3^2
+  case 3: theta(n^2)
+4: T(n) = 8T(n/2) + 6n^3
+  a = 8
+  b = 2
+  k = 3
+  8 = 2^3
+  case 2: theta(n^2)
