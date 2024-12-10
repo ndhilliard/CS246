@@ -1,0 +1,13 @@
+// Wriet the definition of the int function named Size() that takes
+// a generic TNode pointer as a parameter and returns the size of the binary tree
+// pointed to by the parameter
+
+template <typename T>
+int Size(Node<T>* data) {
+	int size;
+	if (data == nullptr) {
+		return 0;
+	} else {
+		return (1 + (Size(data.left) + Size(data.right)));
+	}
+}
