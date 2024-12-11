@@ -3,7 +3,7 @@
 // pointed to by the parameter
 
 template <typename T>
-int Size(Node<T>* data) {
+int Size(TNode<T>* data) {
 	int size;
 	if (data == nullptr) {
 		return 0;
