@@ -4,7 +4,7 @@
 using namespace std;
 
 // sorry for being late today!
-
+// Problem 6
 // function definition
 long Range(TNode<long>* root) { 
 	if (root == nullptr) { // if tree is empty return 0;
